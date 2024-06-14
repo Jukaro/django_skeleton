@@ -1,4 +1,4 @@
-name: django_practice
+name: django_skeleton
 
 services:
   django:
