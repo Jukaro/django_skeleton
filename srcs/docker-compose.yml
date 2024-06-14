@@ -1,0 +1,45 @@
+name: django_practice
+
+services:
+  django:
+    build: requirements/django
+    image: django
+    env_file: .env
+    depends_on:
+      - postgres
+    ports:
+      - 8000:8000
+    networks:
+      - django_network
+    volumes:
+      - app:/app
+    restart: no
+
+  postgres:
+    image: postgres:latest
+    env_file: .env
+    expose:
+      - 5432
+    networks:
+      - django_network
+    volumes:
+      - db:/var/lib/postgresql/data
+    restart: no
+
+volumes:
+  app:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./app
+      o: bind
+  db:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./db
+      o: bind
+
+networks:
+  django_network:
+    name: django_network

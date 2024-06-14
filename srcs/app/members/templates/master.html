@@ -1,0 +1,37 @@
+<!-- {% load static %} -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Single Page App</title>
+
+  <!-- <script type="module" src="/static/js/main.js"></script> -->
+
+  <script src="/static/js/router.js"></script>
+  <script type="module" src="/static/js/component.js"></script>
+  <!-- <script type="module">
+    import { VeryBadComponent } from "/static/js/component.js"
+    VeryBadComponent.maFonction()
+  </script> -->
+</head>
+
+<body>
+  <div id="content"></div>
+  <c-verybadcomponent id="vbc"></c-verybadcomponent>
+
+  <!-- <c-verybadcomponent class="blabla"></c-verybadcomponent>
+
+  <p mabite="27cm">salut22</p>
+  <p mabite="19cm">salut22</p>
+
+  <script>
+    setInterval(() => {
+      const content_div = document.querySelector("#content");
+      const destrucs = content_div.querySelectorAll(`[mabite="27cm"]`);
+      console.log(destrucs);
+    }, 1000);
+  </script> -->
+</body>
+
+</html>
