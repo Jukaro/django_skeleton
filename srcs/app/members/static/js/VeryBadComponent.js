@@ -4,7 +4,11 @@ export class VeryBadComponent extends HTMLElement {
   }
 
   connectedCallback() {
-    this.innerHTML = `<h1 style="background-color: red;">Salut</h1>`;
+    this.innerHTML = `
+    <h1 style="background-color: red;">
+      Salut lol
+    </h1>
+    `;
   }
 
   static maFonction() {

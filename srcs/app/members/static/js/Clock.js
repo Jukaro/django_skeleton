@@ -1,5 +1,5 @@
-import { Component } from "./component.js";
-import { Thread } from "./thread.js";
+import { Component } from "./Components.js";
+import { Thread } from "./Thread.js";
 
 export class Clock extends Component {
     static getName() {
@@ -42,3 +42,5 @@ const content = /*html*/`
 	<span style="font-size: 9em; font-family: 'pong-teko';" id="clock-time"></span>
 	<span style="font-size: 3em; margin-top: -1.3em; font-family: 'pong-teko';" id="clock-date"></span>
 `;
+
+customElements.define("c-clock", Clock);

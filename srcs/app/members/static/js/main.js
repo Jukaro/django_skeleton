@@ -29,7 +29,7 @@
 
 // document.getElementById("demo").innerHTML = "Aled";
 
-import { Component } from "./component.js";
+import { Component } from "./VeryBadComponent.js";
 
 export class Increment extends Component {
   constructor() {

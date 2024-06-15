@@ -5,29 +5,23 @@
                 style="object-fit: cover; object-position: center;" />
             <h2>{{ username }}</h2>
         </div>
-        <!-- <button is="c-friend-btn" class="btn btn-lg" id="btn-friend" target_username="{{ target_username }}"
-            target_id="{{ target_id }}">Add friend</button> -->
+        <button is="c-friend-btn" class="btn btn-lg" id="btn-friend" target_username="{{ target_username }}"
+            target_id="{{ target_id }}">Add friend</button>
     </div>
-    <!-- <div class="card-group text-center">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Game win</h5>
-                <p class="card-text">{{ wins }}</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Total Game</h5>
-                <p class="card-text">{{ games }}</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">WinRate</h5>
-                <p class="card-text">{{ winrate }}</p>
-            </div>
-        </div>
+    <div class="card-group text-center">
+        {% for card in cards %}
+            <c-profilecard class="card" title="{{ card.title }}" value="{{ card.value }}"></c-profilecard>
+        {% endfor %}
     </div>
     <div class="list-group" id="games">
-    </div> -->
+        {% for game in games %}
+            {% if game.players.length == "2" %}
+                <c-quickgame class="list-group-item" at="{{ game.created_at }}" player="{{ game.target_user_info }}" opponents="{{ game.adversaries }}"></c-quickgame>
+            {% elif game.square == "true" %}
+                <c-squaregame class="list-group-item" at="{{ game.created_at }}" player="{{ game.target_user_info }}" opponents="{{ game.adversaries }}"></c-squaregame>
+            {% else %}
+                <c-teamgame class="list-group-item" at="{{ game.created_at }}" player="{{ game.target_user_info }}" all-players="{{ game.all_players }}"></c-teamgame>
+            {% endif %}
+        {% endfor %}
+    </div>
 </div>

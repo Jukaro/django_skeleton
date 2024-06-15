@@ -1,5 +1,8 @@
-class Router {
+import { Thread } from "./Thread.js";
+
+export class Router {
   static async push(pathname) {
+    Thread.clearAll();
     const url = new URL(pathname, window.location.origin);
     const response = await fetch(url, { headers: { "X-Source": "SPA" } });
     const text = await response.text();

@@ -1,8 +1,6 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="{% static 'css/test.css' %}">
+<link rel="stylesheet" href="/static/css/test.css">
 
 <body>
 	{% for x in fruits %}
@@ -10,10 +8,6 @@
 	{% endfor %}
 
 	<p>In views.py you can see what the fruits variable looks like.</p>
-
-	<button onclick="Router.push('myfirst')">MyFirst</button>
-	<button onclick="Router.push('testing')">Testing</button>
-	<button onclick="Router.push('/')">Home</button>
 
 </body>
 
