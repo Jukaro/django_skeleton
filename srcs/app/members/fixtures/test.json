@@ -1,0 +1,18 @@
+[
+  {
+    "model": "members.user",
+    "pk": 1,
+    "fields": {
+      "username": "John Lennonesque",
+      "email": "johnlennon@gmail.com"
+    }
+  },
+  {
+    "model": "members.user",
+    "pk": 2,
+    "fields": {
+      "username": "Paul McCartney",
+      "email": "paulmccartney@gmail.com"
+    }
+  }
+]

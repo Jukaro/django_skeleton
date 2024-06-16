@@ -3,3 +3,5 @@ __pycache__/
 */__pycache__/*
 *.py[cod]
 *$py.class
+
+srcs/app/members/static/media/profile_pictures/*.png

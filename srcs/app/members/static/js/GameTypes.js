@@ -3,8 +3,8 @@ export class QuickGame extends HTMLElement
     connectedCallback()
     {
 		const at = new Date(this.getAttribute("at"));
-		const player = JSON.parse(this.getAttribute("player").replaceAll('\'', '\"'));
-		const opponents = JSON.parse(this.getAttribute("opponents").replaceAll('\'', '\"'));
+		const player = JSON.parse(atob(this.getAttribute("player")));
+		const opponents = JSON.parse(atob(this.getAttribute("opponents")));
         const bgColor = player.win ? 'text-bg-success' : 'text-bg-danger';
 
         this.innerHTML = /*html*/`
@@ -31,8 +31,8 @@ export class SquareGame extends HTMLElement
     connectedCallback()
     {
 		const at = new Date (this.getAttribute("at"));
-		const player = JSON.parse(this.getAttribute("player").replaceAll('\'', '\"'));
-		const opponents = JSON.parse(this.getAttribute("opponents").replaceAll('\'', '\"'));
+		const player = JSON.parse(atob(this.getAttribute("player")));
+		const opponents = JSON.parse(atob(this.getAttribute("opponents")));
 
         this.innerHTML = `
 			<li class="d-flex justify-content-between align-items-center text-center">
@@ -49,12 +49,12 @@ export class SquareGame extends HTMLElement
 }
 
 const addPlayer = (username, win, score, me) => {
-	const userHTML = me ? username : `<a href="/user/${username}">${username}</a>`;
+	const userHTML = me ? username : `<a href="/profile/${username}">${username}</a>`;
 
 	return `
 		<div class=" ms-2 fw-bold">
 			${userHTML}
-			<span class="badge rounded-pill text-bg-${win === 'true' ? "success" : "danger"}">${score}</span>
+			<span class="badge rounded-pill text-bg-${win ? "success" : "danger"}">${score}</span>
 		</div>
 	`;
 }
@@ -69,8 +69,11 @@ export class TeamGame extends HTMLElement
     connectedCallback()
     {
         const at = new Date(this.getAttribute("at"));
-        const player = JSON.parse(this.getAttribute("player").replaceAll('\'', '\"'));
-		const all_players = JSON.parse(this.getAttribute("all-players").replaceAll('\'', '\"'));
+        const player = JSON.parse(atob(this.getAttribute("player")));
+		const all_players = JSON.parse(atob(this.getAttribute("all-players")));
+
+        console.log("player: ", player)
+        console.log("players: ", all_players)
 
         // let players = []
         // let otherScore = 0

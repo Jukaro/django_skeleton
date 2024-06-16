@@ -1,0 +1,8 @@
+- docker compose : ajouter un "name:" et eventuellement enlever les names des dockers et volumes pour laisser le docker compose s'en charger
+- mettre en place django admin
+- pip install factory_boy et pytz
+- images en base64 dans la db (et toutes resized a 128px ?)
+- bouger les urls globales dans leurs apps respectives
+- ajouter le numero de la manche sur chaque match pour pouvoir les afficher correctement avec un composant tournament ?
+- ajouter un background perso en transparence pour les profils (lol)
+- utiliser argparse pour data_gen

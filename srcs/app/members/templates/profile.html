@@ -1,3 +1,5 @@
+{% load custom_tags %}
+
 <div class="mx-auto pt-4 d-flex flex-column gap-4" style="max-width: 70%;">
     <div class="d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center gap-4">
@@ -15,12 +17,12 @@
     </div>
     <div class="list-group" id="games">
         {% for game in games %}
-            {% if game.players.length == "2" %}
-                <c-quickgame class="list-group-item" at="{{ game.created_at }}" player="{{ game.target_user_info }}" opponents="{{ game.adversaries }}"></c-quickgame>
-            {% elif game.square == "true" %}
-                <c-squaregame class="list-group-item" at="{{ game.created_at }}" player="{{ game.target_user_info }}" opponents="{{ game.adversaries }}"></c-squaregame>
+            {% if game.mode == "quick" %}
+                <c-quickgame class="list-group-item" at="{{ game.created_at }}" player="{{ game.target_user_info|jsonbase64 }}" opponents="{{ game.adversaries|jsonbase64 }}"></c-quickgame>
+            {% elif game.mode == "square" %}
+                <c-squaregame class="list-group-item" at="{{ game.created_at }}" player="{{ game.target_user_info|jsonbase64 }}" opponents="{{ game.adversaries|jsonbase64 }}"></c-squaregame>
             {% else %}
-                <c-teamgame class="list-group-item" at="{{ game.created_at }}" player="{{ game.target_user_info }}" all-players="{{ game.all_players }}"></c-teamgame>
+                <c-teamgame class="list-group-item" at="{{ game.created_at }}" player="{{ game.target_user_info|jsonbase64 }}" all-players="{{ game.players|jsonbase64 }}"></c-teamgame>
             {% endif %}
         {% endfor %}
     </div>
