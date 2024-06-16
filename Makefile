@@ -1,5 +1,6 @@
 all:
-	@mkdir -p ./srcs/db
+	# @mkdir -p ./srcs/db
+	@mkdir -p ../db
 	@docker compose -f srcs/docker-compose.yml up --build #-d
 
 clean:

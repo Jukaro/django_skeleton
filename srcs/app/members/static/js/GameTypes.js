@@ -72,8 +72,8 @@ export class TeamGame extends HTMLElement
         const player = JSON.parse(atob(this.getAttribute("player")));
 		const all_players = JSON.parse(atob(this.getAttribute("all-players")));
 
-        console.log("player: ", player)
-        console.log("players: ", all_players)
+        // console.log("player: ", player)
+        // console.log("players: ", all_players)
 
         // let players = []
         // let otherScore = 0
@@ -111,7 +111,12 @@ export class TeamGame extends HTMLElement
         //     </div>
         // </li>`;
         this.innerHTML = `
-            <p>Other Game Type</p>
+            <li class="row d-flex align-items-center">
+                <div class="col">
+                    ${at.getHours()}h${at.getMinutes()}
+                </div>
+                <p>Other Game Type</p>
+            </li>
         `;
     }
 }
