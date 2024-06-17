@@ -1,4 +1,4 @@
-import { Router } from "./Router.js";
+import { Router } from "../Router.js";
 
 export class RedirectButton extends HTMLElement {
   constructor() {

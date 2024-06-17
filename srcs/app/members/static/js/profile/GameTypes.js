@@ -63,7 +63,7 @@ export class TeamGame extends HTMLElement
 {
     link(username)
     {
-        return `<a href="/user/${username}">${username}</a>`
+        return `<a href="/profile/${username}">${username}</a>`
     }
 
     connectedCallback()
@@ -72,50 +72,34 @@ export class TeamGame extends HTMLElement
         const player = JSON.parse(atob(this.getAttribute("player")));
 		const all_players = JSON.parse(atob(this.getAttribute("all-players")));
 
-        // console.log("player: ", player)
-        // console.log("players: ", all_players)
+        let players_team = [];
+        let opponents_team = [];
 
-        // let players = []
-        // let otherScore = 0
-        // let mate = None
+        players_team.push(player);
 
-        // for (const p of all_players)
-        // {
-        //     if (player.score != p.score)
-        //         otherScore = p.score;
-        //     else
-        //         mate = p.user.username;
-        //     players.push(p.user.username)
-        // }
+        for (const p of all_players) {
+            if (p.score == player.score && p.user.id != player.user.id)
+                players_team.push(p);
+            else if (p.user.id != player.user.id)
+                opponents_team.push(p);
+        }
 
-        // let indexOfPlayer = all_players.indexOf(game.target_user_info.user.username)
-        // const indexOfMate = indexOfPlayer % 2 ? indexOfPlayer - 1 : indexOfPlayer + 1
+        const bgColor = player.win ? 'text-bg-success' : 'text-bg-danger';
 
-        // players.splice(indexOfPlayer, 1)
-        // players.splice(indexOfMate % 2 ? indexOfMate - 1 : indexOfMate, 1)
-
-        // const bgColor = this.getAttribute('has_won') == 'true' ? 'text-bg-success' : 'text-bg-danger'
-
-        // this.innerHTML = /*html*/`<li class="row d-flex align-items-center">
-        //     <div class="col">
-        //         ${at.getHours()}h${at.getMinutes()}
-        //     </div>
-        //     <div class="col ms-2 fw-bold">
-        //         ${this.getAttribute("player-1-username")} - ${this.link(this.getAttribute("player-2-username"))}
-        //     </div>
-        //     <div class="col d-flex justify-content-center">
-        //         <span class="badge rounded-pill ${bgColor}">${this.getAttribute('team-1-score')} - ${this.getAttribute('team-2-score')}</span>
-        //     </div>
-        //     <div class="col ms-2 fw-bold text-end">
-        //         ${this.link(this.getAttribute("player-3-username"))} - ${this.link(this.getAttribute("player-4-username"))}
-        //     </div>
-        // </li>`;
         this.innerHTML = `
-            <li class="row d-flex align-items-center">
+            <li class="row d-flex align-items-center justify-content-between">
                 <div class="col">
                     ${at.getHours()}h${at.getMinutes()}
                 </div>
-                <p>Other Game Type</p>
+                <div class="col ms-2 fw-bold">
+                    ${players_team[0].user.username} - ${this.link(players_team[1].user.username)}
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <span class="badge rounded-pill ${bgColor}">${players_team[0].score} - ${opponents_team[0].score}</span>
+                </div>
+                <div class="col ms-2 fw-bold text-end">
+                    ${this.link(opponents_team[0].user.username)} - ${this.link(opponents_team[1].user.username)}
+                </div>
             </li>
         `;
     }

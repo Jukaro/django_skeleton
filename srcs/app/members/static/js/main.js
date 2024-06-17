@@ -1,60 +1,13 @@
-// import { Component } from "./component.js";
-// import { Clock } from "./clock.js";
+import { RedirectButton } from "./redirects/RedirectButton.js"
+import { RedirectMenu } from "./redirects/RedirectMenu.js"
+import { QuickGame, SquareGame, TeamGame } from "./profile/GameTypes.js"
+import { ProfileCard } from "./profile/ProfileCard.js"
+import { SSign } from "./sign/switchSign.js"
+import { SignUp } from "./sign/signUp.js"
+import { Login } from "./sign/login.js"
+import { Input } from "./sign/Input.js"
 
-// Component.loader([
-//   Clock,
-// ]);
+import { Router } from "./Router.js"
+import { Clock } from "./Clock.js"
 
-// const navigateTo = (url) => {
-//   history.pushState(null, null, url);
-//   Router.run();
-// };
-
-// window.addEventListener("popstate", (e) => {
-//   Router.run();
-// });
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   document.body.addEventListener("click", (e) => {
-//     if (e.target.localName == "a") console.log("bite");
-//     if (e.target.localName == "a" && e.target.id != 1) {
-//       console.log("cul");
-//       e.preventDefault();
-//       navigateTo(e.target.href);
-//     }
-//   });
-
-//   Router.run();
-// });
-
-// document.getElementById("demo").innerHTML = "Aled";
-
-import { Component } from "./VeryBadComponent.js";
-
-export class Increment extends Component {
-  constructor() {
-    super();
-  }
-
-  initState() {
-    this.state = { count: 0 };
-  }
-
-  render() {
-    return `
-			<div>
-				<h1>${this.state.count}</h1>
-				<button onclick="${this.setState({
-          count: this.state.count + 1,
-        })}">Increment</button>
-			</div>
-		`;
-  }
-}
-
-customElements.define("c-increment", Increment);
-
-export function test() {
-  if (document.getElementById("demo2") != null) console.log("demo2 existe");
-  else console.log("demo2 n'existe pas");
-}
+import { VeryBadComponent } from "./VeryBadComponent.js"

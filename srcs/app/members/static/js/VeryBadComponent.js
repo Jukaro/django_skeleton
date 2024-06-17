@@ -5,9 +5,7 @@ export class VeryBadComponent extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <h1 style="background-color: red;">
-      Salut lol
-    </h1>
+      <input class="form-control" />
     `;
   }
 

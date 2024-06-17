@@ -14,6 +14,7 @@ export class RedirectMenu extends HTMLElement {
 					<c-redirbutton name="Testing" href="testing"></c-redirbutton>
 					<c-redirbutton name="JSPage" href="jspage"></c-redirbutton>
 					<c-redirbutton name="Profile" href="profile"></c-redirbutton>
+					<c-redirbutton name="Sign" href="sign"></c-redirbutton>
 				</div>
 			</div>
 		</div>

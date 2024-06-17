@@ -1,4 +1,4 @@
-import { Component } from "./Components.js";
+import { Component } from "./Component.js";
 import { Thread } from "./Thread.js";
 
 export class Clock extends Component {
