@@ -14,6 +14,7 @@ random :
 - ajouter le numero de la manche sur chaque match pour pouvoir les afficher correctement avec un composant tournament ?
 - ajouter un background perso en transparence pour les profils (lol)
 - utiliser argparse pour data_gen
+- enlever Django admin des urls de transcend D:
 
 watch for file changes with StatReloader :
 - daphne in django installed apps
