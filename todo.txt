@@ -1,3 +1,11 @@
+pour une branche derriere main :
+- git fetch -p
+- git rebase -i origin/main
+- resoudre les conflits avec vscode
+
+print dans une view : print("", flush=True)
+
+random :
 - docker compose : ajouter un "name:" et eventuellement enlever les names des dockers et volumes pour laisser le docker compose s'en charger
 - mettre en place django admin
 - pip install factory_boy et pytz
@@ -6,3 +14,36 @@
 - ajouter le numero de la manche sur chaque match pour pouvoir les afficher correctement avec un composant tournament ?
 - ajouter un background perso en transparence pour les profils (lol)
 - utiliser argparse pour data_gen
+- enlever Django admin des urls de transcend D:
+
+watch for file changes with StatReloader :
+- daphne in django installed apps
+- python manage.py runserver 0.0.0.0:8001
+
+django admin :
+- faire une ou deux chose a la fois par commit et bien expliquer
+- CSRF_TRUSTED_ORIGINS = ['https://localhost:44433']
+- faire une exception dans les routes nginx pour laisser django aller chercher le css dans l'app admin
+{
+	location /static/admin/ {
+		proxy_pass http://daphne:8001;
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Proto https;
+		proxy_set_header Upgrade $http_upgrade;
+	}
+}
+- admin.py dans users
+{
+	from django.contrib import admin
+	from django.contrib.auth.admin import UserAdmin
+	from .models import User
+
+	admin.site.register(User, UserAdmin)
+}
+- User hérite de AbstractUser et pas de AbstractBaseUser ?
+
+bugs :
+- les users restent connectes quand on en cree beaucoup ? a preciser
+- date toujours affichees quand on trie par type de match
