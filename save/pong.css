@@ -1,0 +1,67 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+canvas {
+	border: 1px solid black;
+}
+
+@font-face {
+	font-family: 'pong-teko';
+	src: url("Teko-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.clickable {
+	cursor: pointer;
+	padding: 6px;
+	width: fit-content;
+}
+
+.bg-blue {
+	background-color: blue;
+}
+
+.bg-gradient1 {
+	background: rgb(2, 0, 36);
+	background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(2, 2, 22, 1) 35%, rgba(0, 212, 255, 1) 100%);
+}
+
+.bg-rgb {
+	animation-name: rgb-anim;
+	animation-duration: 5s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-play-state: running;
+	background: rgb(0, 0, 0);
+}
+
+@keyframes rgb-anim {
+	0% {
+		background-color: rgb(0, 0, 0);
+	}
+	16.6% {
+		background-color: rgb(255, 0, 0);
+	}
+	33.2% {
+		background-color: rgb(255, 255, 0);
+	}
+	49.8% {
+		background-color: rgb(0, 255, 0);
+	}
+	66.4% {
+		background-color: rgb(0, 255, 255);
+	}
+	83.0% {
+		background-color: rgb(0, 0, 255);
+	}
+	100.0% {
+		background-color: rgb(0, 0, 0);
+	}
+}

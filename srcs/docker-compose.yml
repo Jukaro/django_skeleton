@@ -34,11 +34,7 @@ volumes:
       device: ./app
       o: bind
   db:
-    driver: local
-    driver_opts:
-      type: none
-      device: ./db
-      o: bind
+
 
 networks:
   django_network:
